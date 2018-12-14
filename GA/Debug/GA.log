@@ -1,3 +1,4 @@
 ﻿  main.cpp
-c:\users\j-cro\onedrive\documents\uni year 2\ai\ga\ga\main.cpp(20): warning C4101: 'populationSize': unreferenced local variable
+c:\users\j-cro\onedrive\documents\uni year 2\ai\ga\ga\main.cpp(23): warning C4101: 'populationSize': unreferenced local variable
+c:\users\j-cro\onedrive\documents\uni year 2\ai\ga\ga\main.cpp(94): warning C4018: '<': signed/unsigned mismatch
   GA.vcxproj -> C:\Users\J-Cro\OneDrive\Documents\Uni Year 2\AI\GA\Debug\GA.exe

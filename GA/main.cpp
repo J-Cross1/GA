@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <random>
+#include <string>
 
 struct individual
 {
@@ -10,6 +11,8 @@ struct individual
 } ind;
 
 float fitness(float Dx, float Dy, float fitness);
+void print(std::vector<int> const &input);
+
 
 int main()
 {
@@ -20,16 +23,38 @@ int main()
 	int populationSize[20000];
 	float mutationChance = 0.5;
 
-	std::ifstream file("Labs15and16TerrainFile2.txt");
-	std::string str;
+	std::ifstream file("../Labs15and16TerrainFile2.txt");
+	//std::string str;
 
+	//file.open("../Labs15and16TerrainFile2.txt");
+	std::string str[10], string;
 
+	int loop = 0;
+
+	//std::vector< double > values;
+	//double val;
+	//while (file >> val)
+	//{
+	//	values.push_back(val);
+	//}
+
+	if (file.is_open())
+	{
+		while (!file.eof())
+		{
+			std::getline (file, string);
+			str[loop] = string;
+			std::cout << str[loop] << std::endl;
+			loop++;
+		}
+	}
 
 	if (!file.is_open())
 	{
-		throw std::exception();
+		std::cout << "file is not open";
 	}
 	
+	std::cout << str[0] << std::endl;
 
 	for (int i = 0; i < 16; i++)
 	{
@@ -48,7 +73,10 @@ int main()
 	ind.fitness = fitness(ind.Dx, ind.Dy, ind.fitness);
 	std::cout << std::endl << ind.fitness << std::endl;
 
+	file.close();
+
 	system("PAUSE");
+	return 0;
 }
 
 float fitness(float Dx, float Dy, float fitness)
@@ -56,4 +84,13 @@ float fitness(float Dx, float Dy, float fitness)
 	fitness = 1/( Dx + Dy + 1);
 
 	return fitness;
+}
+
+void print(std::vector<int> const &input)
+{
+	//std::cout << "     " << input.size << std::endl;
+	for (int i = 0; i < input.size(); i++)
+	{
+		std::cout << input.at(i) << " ";
+	}
 }
